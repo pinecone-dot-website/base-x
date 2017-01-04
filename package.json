@@ -1,0 +1,28 @@
+{
+  "name": "base-x",
+  "version": "0.0.1",
+  "description": "arbitrary base conversions",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinecone-dot-website/base-x.git"
+  },
+  "keywords": [
+    "base",
+    "npm",
+    "node"
+  ],
+  "author": "Eric Eaglstun",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/pinecone-dot-website/base-x/issues"
+  },
+  "homepage": "https://github.com/pinecone-dot-website/base-x#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
