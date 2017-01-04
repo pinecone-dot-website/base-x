@@ -27,4 +27,10 @@ describe('#numFormatter', function() {
 
         expect( result ).to.equal( '62' );
     } );
+
+    it( 'should break', function(){
+        var result = base_x.convert( 'AA', base_x.BASE10, base_x.BASE62 );
+
+        expect( result ).to.equal( false );
+    } );
 } );

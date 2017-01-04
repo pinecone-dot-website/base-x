@@ -14,7 +14,7 @@ module.exports = new function(){
 	*	@param string
 	*	@param string
 	*	@param string
-	*	@return
+	*	@return string | false
 	*/
 	this.convert = function( src = '', srctable = '', desttable = '' ){
 		src = src.toString();
@@ -25,13 +25,11 @@ module.exports = new function(){
 			numlen = src.length;
 
 		// first convert to base 10
-		for( var i = 0; i < numlen; i ++ ){
+		for( var i = 0; i < numlen; i ++ )
 			val = val * srclen + srctable.indexOf( src.charAt(i) );
-		}
 		
-		if( val < 0 ){
-			return 0;
-		}
+		if( val < 0 )
+			return false;
 		
 		// then covert to any base
 		var r = val % destlen;
