@@ -39,4 +39,16 @@ describe('#numFormatter', function() {
 
         expect( result ).to.equal( '62' );
     } );
+
+    it( 'should return false on no source or destination table', function(){
+        var result = base_x.convert( '1000', '', '' );
+
+        expect( result ).to.equal( false );
+    } );
+
+    it( 'should return false on invalid characters in source table', function(){
+        var result = base_x.convert( 'ACBD', base_x.BASE2, base_x.BASE10 );
+
+        expect( result ).to.equal( false );
+    } );
 } );
