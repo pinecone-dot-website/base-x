@@ -24,9 +24,14 @@ module.exports = new function(){
 			val = 0,
 			numlen = src.length;
 
+		//
+		if( srctable.length < 1 || desttable.length < 1 )
+			return false;
+
 		// first convert to base 10
-		for( var i = 0; i < numlen; i ++ )
+		for( var i = 0; i < numlen; i ++ ){
 			val = val * srclen + srctable.indexOf( src.charAt(i) );
+		}
 		
 		if( val < 0 )
 			return false;
