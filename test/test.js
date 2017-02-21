@@ -51,4 +51,26 @@ describe('#numFormatter', function() {
 
         expect( result ).to.equal( false );
     } );
+
+    it( 'should convert 3 in custom base 3 `012` to 10', function(){
+        var result = base_x.convert( '3', base_x.BASE10, '012' );
+
+        expect( result ).to.equal( '10' );
+    } );
+
+    it( 'should convert 5 in custom base 4 `0123` to 11', function(){
+        base_x.BASE4 = '0123';
+
+        var result = base_x.convert( '5', base_x.BASE10, base_x.BASE4 );
+
+        expect( result ).to.equal( '11' );
+    } );
+
+    it( 'should convert 12 in custom base 4 `0123` to 6 in base 10', function(){
+        base_x.BASE4 = '0123';
+
+        var result = base_x.convert( '12', base_x.BASE4, base_x.BASE10 );
+
+        expect( result ).to.equal( '6' );
+    } );
 } );
