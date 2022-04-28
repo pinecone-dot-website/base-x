@@ -2,6 +2,14 @@ import { expect } from "chai";
 import base_x from "../src/index";
 
 describe("#numFormatter", () => {
+  it("should not allow empty source", () => {
+    const call = () => {
+      base_x.convert("", base_x.getBase("BASE10"), base_x.getBase("BASE2"));
+    };
+
+    expect(call).to.throw();
+  });
+
   it("should not allow empty source table", () => {
     const call = () => {
       base_x.convert("123", "", base_x.getBase("BASE10"));

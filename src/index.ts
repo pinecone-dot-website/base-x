@@ -25,16 +25,20 @@ class BaseX {
       destlen = desttable.length,
       numlen = src.length;
 
-    let val = 0;
-
     //
-    if (srctable.length < 1) {
+    if (numlen < 1) {
       throw Error("Source table does not contain values");
     }
 
-    if (desttable.length < 1) {
+    if (srclen < 1) {
+      throw Error("Source table does not contain values");
+    }
+
+    if (destlen < 1) {
       throw Error("Destination table does not contain values");
     }
+
+    let val = 0;
 
     // first convert to base 10
     for (let i = 0; i < numlen; i++) {
