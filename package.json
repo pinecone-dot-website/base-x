@@ -2,7 +2,8 @@
   "name": "@rackandpinecone/base-x",
   "version": "0.2.0",
   "description": "arbitrary base conversions",
-  "main": "lib/index.js",
+  "main": "lib/base_x.js",
+  "types": "lib/base_x.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha",
