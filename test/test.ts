@@ -2,6 +2,22 @@ import { expect } from "chai";
 import base_x from "../src/index";
 
 describe("#numFormatter", () => {
+  it("should not allow empty source table", () => {
+    const call = () => {
+      base_x.convert("123", "", base_x.getBase("BASE10"));
+    };
+
+    expect(call).to.throw();
+  });
+
+  it("should not allow empty destination table", () => {
+    const call = () => {
+      base_x.convert("123", base_x.getBase("BASE10"), "" );
+    };
+
+    expect(call).to.throw();
+  });
+
   it("should convert 1001 in base 2 to 9 in base 10", () => {
     const result = base_x.convert(
       "1001",
@@ -60,12 +76,6 @@ describe("#numFormatter", () => {
     );
 
     expect(result).to.equal("62");
-  });
-
-  it("should return false on no source or destination table", () => {
-    const result = base_x.convert("1000", "", "");
-
-    expect(result).to.equal(false);
   });
 
   it("should return false on invalid characters in source table", () => {

@@ -27,7 +27,13 @@ class BaseX {
     let val = 0;
 
     //
-    if (srctable.length < 1 || desttable.length < 1) return false;
+    if (srctable.length < 1){
+      throw Error('Source table does not contain values');
+    };
+
+    if (desttable.length < 1){
+      throw Error('Destination table does not contain values');
+    }
 
     // first convert to base 10
     for (let i = 0; i < numlen; i++) {
@@ -50,11 +56,11 @@ class BaseX {
     return res;
   }
 
-  getBase(name: string) {
+  getBase(name: string): string {
     return this.bases[name];
   }
 
-  setBase(name: string, table: string) {
+  setBase(name: string, table: string): void {
     this.bases[name] = table;
   }
 }

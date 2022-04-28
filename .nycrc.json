@@ -1,0 +1,12 @@
+{
+    "report-dir": "coverage",
+    "exclude": [
+        "test/*.*"
+    ],
+    "reporter": [
+        "html",
+        "lcov",
+        "text",
+        "text-summary"
+    ]
+}
