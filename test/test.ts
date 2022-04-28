@@ -12,7 +12,7 @@ describe("#numFormatter", () => {
 
   it("should not allow empty destination table", () => {
     const call = () => {
-      base_x.convert("123", base_x.getBase("BASE10"), "" );
+      base_x.convert("123", base_x.getBase("BASE10"), "");
     };
 
     expect(call).to.throw();
@@ -79,13 +79,11 @@ describe("#numFormatter", () => {
   });
 
   it("should return false on invalid characters in source table", () => {
-    const result = base_x.convert(
-      "ACBD",
-      base_x.getBase("BASE2"),
-      base_x.getBase("BASE10")
-    );
+    const call = () => {
+      base_x.convert("ACBD", base_x.getBase("BASE2"), base_x.getBase("BASE10"));
+    };
 
-    expect(result).to.equal(false);
+    expect(call).to.throw();
   });
 
   it("should convert 3 in custom base 3 `012` to 10", () => {
