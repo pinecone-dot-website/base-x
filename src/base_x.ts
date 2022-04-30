@@ -19,50 +19,52 @@ export class BaseX {
    *	@return string
    */
   convert(
-    input: string | number = '',
-    src_table: string = 'BASE10',
-    dest_table: string = 'BASE2'
-  ): string {
-    input = input.toString();
+    input: string | number = "",
+    src_table: string = "BASE10",
+    dest_table: string = "BASE2"
+  ): Promise<string> {
+    return new Promise((resolve, reject) => {
+      input = input.toString();
 
-    const src = this.getBase(src_table),
-      dest = this.getBase(dest_table);
+      const src = this.getBase(src_table),
+        dest = this.getBase(dest_table);
 
-    const src_len = src.length,
-      dest_len = dest.length,
-      input_len = input.length;
+      const src_len = src.length,
+        dest_len = dest.length,
+        input_len = input.length;
 
-    //
-    if (input_len < 1) {
-      throw Error("Cannot convert blank value");
-    }
-
-    let val = 0;
-
-    // first convert to base 10
-    for (let i = 0; i < input_len; i++) {
-      const char = input.charAt(i);
-      const char_index = src.indexOf(char);
-
-      if (char_index < 0) {
-        throw Error(`Invalid character "${char}"`);
+      //
+      if (input_len < 1) {
+        throw Error("Cannot convert blank value");
       }
 
-      val = val * src_len + char_index;
-    }
+      let val = 0;
 
-    // then covert to any base
-    let r = val % dest_len;
-    let res = dest.charAt(r);
-    let q = Math.floor(val / dest_len);
+      // first convert to base 10
+      for (let i = 0; i < input_len; i++) {
+        const char = input.charAt(i);
+        const char_index = src.indexOf(char);
 
-    while (q) {
-      r = q % dest_len;
-      q = Math.floor(q / dest_len);
-      res = dest.charAt(r) + res;
-    }
+        if (char_index < 0) {
+          throw Error(`Invalid character "${char}" in "${input}"`);
+        }
 
-    return res;
+        val = val * src_len + char_index;
+      }
+
+      // then covert to any base
+      let r = val % dest_len;
+      let res = dest.charAt(r);
+      let q = Math.floor(val / dest_len);
+
+      while (q) {
+        r = q % dest_len;
+        q = Math.floor(q / dest_len);
+        res = dest.charAt(r) + res;
+      }
+
+      resolve(res);
+    });
   }
 
   /**
@@ -74,7 +76,7 @@ export class BaseX {
   getBase(name: string): string {
     const table = this.bases[name];
     if (!table || !table.length) {
-      throw new Error(`Getting table "${name} does not contain any values`);
+      throw new Error(`Getting table "${name}" does not contain any values`);
     }
 
     return table;
