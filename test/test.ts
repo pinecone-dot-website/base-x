@@ -12,6 +12,7 @@ describe("#covertions", () => {
   });
 
   it("should convert 9 in base 10 to 1001 in base 2", () => {
+    expect(Base.convert("9")).to.eventually.equal("1001");
     expect(Base.convert("9", "BASE10", "BASE2")).to.eventually.equal("1001");
   });
 

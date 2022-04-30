@@ -22,4 +22,8 @@ describe("#input", () => {
   it("should not allow destination table that does not exist", () => {
     expect(Base.convert("123", "BASE10", "ABC")).to.eventually.throw();
   });
+
+  it("should not allow setting destination with no characters", () => {
+    expect(Base.setBase("TEST", "")).to.throw();
+  });
 });

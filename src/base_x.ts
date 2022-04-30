@@ -19,7 +19,7 @@ export class BaseX {
    *	@return 
    */
   convert(
-    input: string | number = "",
+    input: string | number,
     src_table: string = "BASE10",
     dest_table: string = "BASE2"
   ): Promise<string> {
