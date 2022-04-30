@@ -4,30 +4,6 @@ import { BaseX } from "../src/base_x";
 const Base = new BaseX();
 
 describe("#numFormatter", () => {
-  it("should not allow empty source", () => {
-    const call = () => {
-      Base.convert("", "BASE10", "BASE2");
-    };
-
-    expect(call).to.throw();
-  });
-
-  it("should not allow empty source table", () => {
-    const call = () => {
-      Base.convert("123", "ABC", "BASE10");
-    };
-
-    expect(call).to.throw();
-  });
-
-  it("should not allow empty destination table", () => {
-    const call = () => {
-      Base.convert("123", "BASE10", "ABC");
-    };
-
-    expect(call).to.throw();
-  });
-
   it("should convert 1001 in base 2 to 9 in base 10", () => {
     const result = Base.convert("1001", "BASE2", "BASE10");
 
