@@ -13,10 +13,10 @@ export class BaseX {
   /**
    *
    *	@param input string | number
-   *	@param srctable string
-   *	@param desttable string
-   *  @throws Error
-   *	@return string
+   *	@param src_table string
+   *	@param dest_table string
+   *  @throws 
+   *	@return 
    */
   convert(
     input: string | number = "",
