@@ -6,8 +6,11 @@ export class BaseX {
     BASE16: "0123456789ABCDEF",
     BASE32: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     BASE62: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+    BASE74:
+      "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_,!=-*(){}[]",
     BASE75:
       "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_.,!=-*(){}[]",
+    UUID: "0123456789abcdef-",
   };
 
   /**
@@ -15,8 +18,8 @@ export class BaseX {
    *	@param input string | number
    *	@param src_table string
    *	@param dest_table string
-   *  @throws 
-   *	@return 
+   *  @throws
+   *	@return
    */
   convert(
     input: string | number,

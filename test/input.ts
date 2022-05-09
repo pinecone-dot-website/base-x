@@ -24,6 +24,8 @@ describe("#input", () => {
   });
 
   it("should not allow setting destination with no characters", () => {
-    expect(Base.setBase("TEST", "")).to.throw();
+    expect(() => Base.setBase("TEST", "")).to.throw(
+      'Cannot set table "TEST" with no values'
+    );
   });
 });
