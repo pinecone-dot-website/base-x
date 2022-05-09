@@ -1,6 +1,6 @@
 {
   "name": "@rackandpinecone/base-x",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "arbitrary base conversions",
   "main": "lib/base_x.js",
   "types": "lib/base_x.d.ts",
